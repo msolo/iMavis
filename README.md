@@ -1,5 +1,6 @@
+# iMavis
 
-<img src="img/roaring-mouse-white-1024.png" alt="Mavis Mouse" align="right">
+<img src="docs/img/roaring-mouse-white-1024.png" alt="Mavis Mouse" align="right">
 
 Mavis is a simple app for iPhone and iPad for interacting with Apple’s built-in speech synthesizer. Due to a rather unfortunate naming collision and the policies of the App Store, the exact name of the application had to be changed.
 
@@ -13,7 +14,7 @@ At least one high quality system voice is required to use Mavis and it can use A
 Quickly repeat any of the last few phrases without having to retype them. There are simple keyboard shortcuts to control the selection.
 
 ## Tab Complete
-Quickly access frequent phrases by the tab key to suggest the best matches. Your list of phrases can be easily edited, refer to the  [Cheat Sheet](help.md) for more detailed information.
+Quickly access frequent phrases by the tab key to suggest the best matches. Your list of phrases can be easily edited, refer to the  [Cheat Sheet](docs/help.md) for more detailed information.
 
 ## Pronunciations
 English is a fickle beast, so you can edit the pronunciations of specific words so that it sounds how it should. This is most often useful with proper nouns, names and acronyms.
@@ -36,4 +37,4 @@ iMavis can use your Personal Voice if you have one, but you must first configure
 
 # Documentation
 
-More detailed information is available in the [Help Docs](help.md).
+More detailed information is available in the [Help Docs](docs/help.md).
