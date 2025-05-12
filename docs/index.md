@@ -1,5 +1,5 @@
 
-<img src="img/roaring-mouse-white-1024.png" alt="Mavis Mouse" align="right">
+<img src="img/roaring-mouse-white-1024.png" width="256" alt="Mavis Mouse" align="right">
 
 Mavis is a simple app for iPhone and iPad for interacting with Apple’s built-in speech synthesizer. Due to a rather unfortunate naming collision and the policies of the App Store, the exact name of the application had to be changed.
 
@@ -37,3 +37,5 @@ iMavis can use your Personal Voice if you have one, but you must first configure
 # Documentation
 
 More detailed information is available in the [Help Docs](help.md).
+
+[Privacy Policy](privacy-policy-ios.md)
