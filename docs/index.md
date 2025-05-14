@@ -30,7 +30,9 @@ Soundbites do not work over FaceTime/Phone calls due to some limitations with iO
 
 # Installing
 
-iOS Public Test Flight
+## iOS Public TestFlight
+
+Until iMavis is formally approved by Apple, you may [install it using TestFlight](https://testflight.apple.com/join/W9rEpXmy).
 
 iMavis can use your Personal Voice if you have one, but you must first configure Apple's setting to allow third-party applications to request Personal Voice permissions.
 
