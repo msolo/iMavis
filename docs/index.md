@@ -30,11 +30,13 @@ Soundbites do not work over FaceTime/Phone calls due to some limitations with iO
 
 # Installing
 
+As of May 2025, [Mavis is available on the App Store for iPad and iPhone](https://apps.apple.com/us/app/imavis/id6741783799).
+
+iMavis can use your Personal Voice if you have one, but you must first configure Apple's Personal Voice settings withing the Accessiblity section to allow third-party applications to request Personal Voice permissions.
+
 ## iOS Public TestFlight
 
-Until iMavis is formally approved by Apple, you may [install it using TestFlight](https://testflight.apple.com/join/W9rEpXmy).
-
-iMavis can use your Personal Voice if you have one, but you must first configure Apple's setting to allow third-party applications to request Personal Voice permissions.
+iMavis has a public TestFlight version which is used to evaluate new features [install it using TestFlight](https://testflight.apple.com/join/W9rEpXmy).
 
 # Documentation
 

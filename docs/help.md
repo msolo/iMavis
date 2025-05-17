@@ -2,7 +2,7 @@
 
 Mavis has a few features designed to make composing messages easier. This application was designed and built for a specific person who was a very competent typist, but who also possessed a distinct antipathy for computing technology.
 
-The default setting and capablities were strongly influenced by her needs and capabilities and my best guesses on how to make living with this technology easier for her. There are many possible ways to modify and improve the software for specific needs.
+The default settings and capabilities were strongly influenced by her needs and abilities as well as my best guesses on how to make living with this technology easier for her. There are many possible ways to modify and improve the software for specific needs.
 
 # 0. Text to speech
 
@@ -10,7 +10,7 @@ You can be lazy. Text to speech does not care about capitalization and usually d
 
 Sometimes there are subtle differences with some punctuation, like hyphens and commas. Unfortunately, right now most of the voices don't recognize the difference between `"Hello."`, `"Hello?"` and `"Hello!"` -- that's a current limitation of the Apple Speech synthesizer.
 
-If there is some persistent problem, let me know, there are ways to tweak pronunciation inside the voice synthesizer. See the section on **Pronunciations**.
+If there is a persistent problem, there are ways to tweak pronunciation inside the voice synthesizer. See the section on **Pronunciations**.
 
 # 1. Keyboard Navigation
 
