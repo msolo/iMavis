@@ -147,7 +147,7 @@ Adjust font sizes and how long the display will stay awake when using the app to
 
 ### soundbites.zip
 
-This zip archive can contain any number of sound files that are in the `.wav.` or `.m4a` formats. The importer uses the name of the each file in the zip archive as the exact text to use when matching a soundbite.
+This zip archive can contain any number of sound files that are in the `.wav` or `.m4a` formats. The importer uses the name of the each file in the zip archive as the exact text to use when matching a soundbite.
 
 For instance `Hello.wav` and `Hello!.wav` could be distinct entries. Typing "hello" would only match the first. "hello!" would only match the second.
 
