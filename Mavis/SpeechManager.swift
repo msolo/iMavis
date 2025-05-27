@@ -2,13 +2,11 @@ import AVFoundation
 import CallKit
 import Foundation
 
-// FIXME: pronounce "tush"
-
 final class SpeechManager {
   static let shared = SpeechManager()
 
   private let synth: AVSpeechSynthesizer
-  private var _soundbiteMap: [String: URL] = [:]
+  private var _normalizedSoundbiteMap: [String: URL] = [:]
   private var _soundbites: [String] = []
   private let callObserver = CallObserver()
 
@@ -172,29 +170,29 @@ final class SpeechManager {
         return
       }
       var bites: [String] = []
-      var biteURLMap: [String: URL] = [:]
+      var normBiteURLMap: [String: URL] = [:]
       for f in files {
         let fname = f as NSString
         if !validExtensions.contains(fname.pathExtension) {
           continue
         }
-        var bite = fname.deletingPathExtension
-        bite = normalizeBite(bite)
+        let bite = fname.deletingPathExtension
+        let normBite = normalizeBite(bite)
         let fu = dir.appending(path: f)
         bites.append(bite)
-        biteURLMap[bite] = fu
+        normBiteURLMap[normBite] = fu
       }
       bites.sort()
       _soundbites = bites
-      _soundbiteMap = biteURLMap
+      _normalizedSoundbiteMap = normBiteURLMap
     } catch {
       print("reloadSoundbites failed: \(error)")
     }
   }
 
-  private var soundbiteMap: [String: URL] {
+  private var normalizedSoundbiteMap: [String: URL] {
     reloadSoundbites()
-    return _soundbiteMap
+    return _normalizedSoundbiteMap
   }
 
   var soundbites: [String] {
@@ -203,7 +201,7 @@ final class SpeechManager {
   }
 
   func matchingSoundbite(text: String) -> URL? {
-    return soundbiteMap[normalizeBite(text)]
+    return normalizedSoundbiteMap[normalizeBite(text)]
   }
 }
 
