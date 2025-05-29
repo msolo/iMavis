@@ -41,8 +41,10 @@ struct _KeyPress: Equatable {
       key = KeyEquivalent.return
     } else if characters == "" {
       key = KeyEquivalent.delete
-    } else {
+    } else if characters.count == 1 {
       key = KeyEquivalent(Character(characters))
+    } else {
+      key = KeyEquivalent("\0")
     }
     modifiers = EventModifiers()
     phase = KeyPress.Phases.down
@@ -101,8 +103,15 @@ struct ContentView: View {
     }
   }
 
+  var refinement: Binding<String> {
+    Binding {
+      CompletionManager.shared.refinement
+    } set: { _ in
+    }
+  }
+
   var isShowingCompletions: Bool {
-    CompletionManager.shared.isCompleting
+    CompletionManager.shared.shouldShowCompletions
   }
 
   // This is special binding to make our TextView ignore keystrokes
@@ -127,7 +136,8 @@ struct ContentView: View {
     NavigationStack {
       VStack {
         if isShowingCompletions {
-          CompletionListView(items: $completions, selection: $completionSelection)
+          CompletionListView(items: $completions, selection: $completionSelection,
+                             refinement: refinement)
         } else {
           ListView(messages: $messages, selection: $historySelection, saveAction: saveAction)
         }
@@ -151,7 +161,8 @@ struct ContentView: View {
         .onChange(of: completionSelection) {
           if let text = completionSelection {
             setSpeechText(text.string)
-            speechSelectedRange = NSRange(location: 0, length: text.string.utf16.count)
+            let r = NSRange(location: 0, length: text.string.utf16.count)
+            speechSelectedRange = r
           }
         }
         .onChange(of: speechSelectedRange) {
@@ -312,6 +323,7 @@ struct ContentView: View {
   }
 
   func textViewKeyDownCompletion(evt: _KeyPress) -> KeyPress.Result {
+    let isASCIIOnly = evt.characters.allSatisfy { $0.isASCII }
     if evt.key == .return {
       if !CompletionManager.shared.completions.isEmpty {
         CompletionManager.shared.accept()
@@ -321,7 +333,7 @@ struct ContentView: View {
       CompletionManager.shared.cancel()
       return .handled
     } else if evt.key == .delete {
-      // Ignore delete for now.
+      updateCompletion(withKeyPress: evt)
       return .handled
     } else if evt.key == .tab {
       if evt.modifiers.contains(.shift) {
@@ -336,10 +348,10 @@ struct ContentView: View {
     } else if evt.key == .downArrow {
       selectNextCompletion()
       return .handled
-    } else if evt.key.character.isASCII {
+    } else if evt.characters.allSatisfy({ $0.isASCII }) {
       // FIXME: perhaps we should be using evt.characters here
       // to handle swipe input.
-      updateCompletion(forCharacter: evt.key.character)
+      updateCompletion(withKeyPress: evt)
       return .handled
     }
 
@@ -545,7 +557,6 @@ struct ContentView: View {
       sayRange = allRange
     } else {
       sayRange = NSMakeRange(attrRange.length, speechText.length - attrRange.length)
-      print("unspokenTextRange ", sayRange)
     }
     return sayRange
   }
@@ -635,8 +646,8 @@ struct ContentView: View {
     }
   }
 
-  func updateCompletion(forCharacter char: Character) {
-    CompletionManager.shared.refineCompletion(withString: String(char))
+  func updateCompletion(withKeyPress keyPress: _KeyPress) {
+    CompletionManager.shared.refineCompletion(withKeyPress: keyPress)
   }
 }
 

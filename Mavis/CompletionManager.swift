@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
+
 struct ScoredString: Comparable {
   // Sort by highest score and then alphabetically.
   static func < (lhs: ScoredString, rhs: ScoredString) -> Bool {
@@ -11,7 +12,6 @@ struct ScoredString: Comparable {
       return true
     }
     return false
-
   }
 
   var score: Double
@@ -21,7 +21,10 @@ struct ScoredString: Comparable {
 @Observable
 class CompletionManager: ObservableObject {
   var completions: [AttributedString] = []
-  var isCompleting = false
+
+  var shouldShowCompletions: Bool {
+    return !completions.isEmpty || completionTask != nil
+  }
 
   var textViewString: Binding<NSAttributedString>? = nil
   var textViewSelection: Binding<NSRange>? = nil
@@ -30,8 +33,11 @@ class CompletionManager: ObservableObject {
   // Refinement is extra, non-visible characters we use to further
   // narrow selection. The UI here isn't great - it's more like MacOS
   // where key events help navigate lists.
-  private var refinement = ""
+  var refinement = ""
   private var allowRefinement = false
+  // Retain a copy of the originalCompletions so we can reset
+  // when deletes happen.
+  private var originalCompletions: [AttributedString] = []
 
   // Track a task providing completions so we can cancel if necessary.
   private var completionTask: URLSessionDataTask? = nil
@@ -186,24 +192,22 @@ class CompletionManager: ObservableObject {
   {
     allowRefinement = false
     readFiles()
+
     // context is the whole message
     // str is probably the last token, which is probably partial (but not necessarily), but could also be the whole
     // context.
     let words = Self.tokenizeIntoWords(string: str)
 
     if words.isEmpty {
-      // FIXME: return quick replies? Not really sure this gets used.
-      return nil
-    }
-
-    if words.count == 1 {
-      if let tok = words.last {
-        if tok == "z" {
-          allowRefinement = true
-          return styleCompletions(
-            completions: phrases, forText: context, highlightDifferences: false)
-        }
-      }
+      // If there is no context, use all available phrases/soundbites.
+      allowRefinement = true
+      return styleCompletions(
+        completions: phrases, forText: context, highlightDifferences: false)
+    } else if words.count == 1 && words.last == "z" {
+      // Use "z" as a shorthand to force just soundbites.
+      allowRefinement = true
+      return styleCompletions(
+        completions: SpeechManager.shared.soundbites, forText: context, highlightDifferences: false)
     }
 
     if Prefs.shared.enableCorrectorService {
@@ -297,6 +301,7 @@ class CompletionManager: ObservableObject {
   private func setCompletions(_ completions: [AttributedString]) {
     // Reverse the order, since our UI is inverted.
     self.completions = completions.reversed()
+    self.originalCompletions = self.completions
     self.listViewSelection?.wrappedValue = self.completions.last
   }
 
@@ -305,7 +310,6 @@ class CompletionManager: ObservableObject {
     textViewString: Binding<NSAttributedString>, textViewSelection: Binding<NSRange>,
     withSelectedItem selectedItem: Binding<AttributedString?>
   ) {
-    self.isCompleting = true
     self.textViewString = textViewString
     self.textViewSelection = textViewSelection
     self.listViewSelection = selectedItem
@@ -324,16 +328,20 @@ class CompletionManager: ObservableObject {
     {
       setCompletions(sortedCompletions)
     }
-
-    //    print("showCompletions", completions)
   }
 
   @MainActor
-  func refineCompletion(withString str: String) {
-    refinement = refinement.appending(str).lowercased()
+  func refineCompletion(withKeyPress keyPress: _KeyPress) {
     if !allowRefinement {
       return
     }
+    if keyPress.key == .delete {
+      refinement = String(refinement.dropLast())
+      completions = originalCompletions
+    } else {
+      refinement = refinement.appending(keyPress.characters).lowercased()
+    }
+
     // This is more complicated than it seems in terms of getting a useful behavior.
     // It's not clear the target audience will be able to make use of this.
     //
@@ -349,7 +357,6 @@ class CompletionManager: ObservableObject {
       }
     }
     if !refined.isEmpty {
-      // print("refine completion: '\(refinement)'", refined)
       completions = refined
       listViewSelection?.wrappedValue = completions.last
     }
@@ -365,13 +372,12 @@ class CompletionManager: ObservableObject {
   }
 
   private func reset() {
-    self.isCompleting = false
     completions = []
     refinement = ""
     listViewSelection?.wrappedValue = nil
     if let task = completionTask {
-      print("cancel completionTask")
       task.cancel()
+      completionTask = nil
     }
   }
 
@@ -416,12 +422,16 @@ class CompletionManager: ObservableObject {
 struct CompletionListView: View {
   @Binding var items: [AttributedString]
   @Binding var selection: AttributedString?
+  @Binding var refinement: String
 
   var body: some View {
     GeometryReader { geometry in
       ScrollViewReader { scrollView in
         if items.isEmpty {
           ProgressView().progressViewStyle(CircularProgressViewStyle())
+        }
+        if (refinement.count > 0) {
+          Text(refinement)
         }
         List(selection: $selection) {
           ForEach(items, id: \.self) { row in
@@ -461,4 +471,12 @@ struct CompletionListView: View {
       }
     }
   }
+}
+
+
+#Preview {
+  CompletionListView(items:.constant([]), //"A", "B", "C"]),
+                     selection: .constant("test"),
+                     refinement: .constant("ref")
+  )
 }
