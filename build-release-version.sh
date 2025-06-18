@@ -8,8 +8,8 @@ set -eu
 # Conflict in the AppStore
 APP_NAME="Mavis"
 # Set the version and build numbers
-VERSION_NUMBER="1.0.8"
-BUILD_NUMBER="8"
+VERSION_NUMBER="1.0.9"
+BUILD_NUMBER="9"
 GIT_TAG="release-$VERSION_NUMBER"
 
 # Set the Xcode project file path

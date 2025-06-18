@@ -153,6 +153,12 @@ struct ContentView: View {
         .onAppear {
           self.focusedField = .speechText
         }
+        .onDisappear {
+          // It's confusing for users to potentially navigate someplace else and return in
+          // completion state. This is something that is largely "for free" on MacOS, but needs
+          // to be emulated here.
+          CompletionManager.shared.cancel()
+        }
         .onChange(of: historySelection) {
           if let row = historySelection {
             setSpeechText(row.message)
