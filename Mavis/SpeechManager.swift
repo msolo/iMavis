@@ -166,7 +166,7 @@ final class SpeechManager {
       let validExtensions = ["m4a", "wav"]
       let dir = try userFile("soundbites", isPublic: true)
 
-      guard let files = try MVFileManager.shared.readDir(dirURL: dir) else {
+      guard let files = try MVFileManager.shared.readDirIfModified(dirURL: dir) else {
         return
       }
       var bites: [String] = []

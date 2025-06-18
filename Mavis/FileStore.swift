@@ -24,9 +24,7 @@ class FileStore: ObservableObject, Equatable, Hashable {
 
   func load() {
     do {
-      if let data = try MVFileManager.shared.readFileDataIfModified(fileURL: url) {
-        contents = data
-      }
+      contents = try readFile(fileURL: url)
     } catch {
       print("Failed loading file:", url, error)
     }

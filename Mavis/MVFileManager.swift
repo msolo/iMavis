@@ -80,7 +80,7 @@ class MVFileManager {
     return sl
   }
 
-  func readDir(dirURL: URL) throws -> [String]? {
+  func readDirIfModified(dirURL: URL) throws -> [String]? {
     let fm = FileManager.default
     do {
       let attrs = try fm.attributesOfItem(atPath: dirURL.path)
