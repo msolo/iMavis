@@ -1,6 +1,6 @@
 # Privacy Policy
 
-This privacy policy is provided by HiredGoons, the developer of the iOS app iMavis.
+This privacy policy is provided by Lazy Bear Labs LLC, the developer of the iOS app Mavis AAC.
  * The app does not collect or share any kind of personal or other information.
  * All information is stored locally on the device, so conversations always remain private.
  * The app does not need an internet connection to function.

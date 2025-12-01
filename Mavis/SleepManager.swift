@@ -8,7 +8,7 @@ import UIKit
 // idle lock.
 class SleepManager {
   private var timer: DispatchSourceTimer?
-  private let queue = DispatchQueue(label: "com.hiredgoons.iMavis.sleepTimer")
+  private let queue = DispatchQueue(label: "com.lazybearlabs.MavisAAC.sleepTimer")
   static let shared = SleepManager()
 
   func deferSleep(_ interval: TimeInterval) {

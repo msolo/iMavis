@@ -29,8 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		130FF1442D5AE16E0034134C /* iMavis-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "iMavis-Info.plist"; sourceTree = "<group>"; };
-		132BF81A2D4859F70075721B /* iMavis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMavis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		130FF1442D5AE16E0034134C /* MavisAAC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MavisAAC-Info.plist"; sourceTree = "<group>"; };
+		132BF81A2D4859F70075721B /* Mavis AAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mavis AAC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		132BF82F2D4859F90075721B /* MavisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MavisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		132BF8392D4859F90075721B /* MavisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MavisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13863E782D4F52F600A55FCA /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		132BF8112D4859F70075721B = {
 			isa = PBXGroup;
 			children = (
-				130FF1442D5AE16E0034134C /* iMavis-Info.plist */,
+				130FF1442D5AE16E0034134C /* MavisAAC-Info.plist */,
 				132BF81C2D4859F70075721B /* Mavis */,
 				132BF8322D4859F90075721B /* MavisTests */,
 				132BF83C2D4859F90075721B /* MavisUITests */,
@@ -95,7 +95,7 @@
 		132BF81B2D4859F70075721B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				132BF81A2D4859F70075721B /* iMavis.app */,
+				132BF81A2D4859F70075721B /* Mavis AAC.app */,
 				132BF82F2D4859F90075721B /* MavisTests.xctest */,
 				132BF8392D4859F90075721B /* MavisUITests.xctest */,
 			);
@@ -105,9 +105,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		132BF8192D4859F70075721B /* iMavis */ = {
+		132BF8192D4859F70075721B /* Mavis AAC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 132BF8432D4859F90075721B /* Build configuration list for PBXNativeTarget "iMavis" */;
+			buildConfigurationList = 132BF8432D4859F90075721B /* Build configuration list for PBXNativeTarget "Mavis AAC" */;
 			buildPhases = (
 				132BF8162D4859F70075721B /* Sources */,
 				132BF8172D4859F70075721B /* Frameworks */,
@@ -120,12 +120,12 @@
 			fileSystemSynchronizedGroups = (
 				132BF81C2D4859F70075721B /* Mavis */,
 			);
-			name = iMavis;
+			name = "Mavis AAC";
 			packageProductDependencies = (
 				1350C8B92D585453005A9CD3 /* ZIPFoundation */,
 			);
 			productName = Mavis;
-			productReference = 132BF81A2D4859F70075721B /* iMavis.app */;
+			productReference = 132BF81A2D4859F70075721B /* Mavis AAC.app */;
 			productType = "com.apple.product-type.application";
 		};
 		132BF82E2D4859F90075721B /* MavisTests */ = {
@@ -214,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				132BF8192D4859F70075721B /* iMavis */,
+				132BF8192D4859F70075721B /* Mavis AAC */,
 				132BF82E2D4859F90075721B /* MavisTests */,
 				132BF8382D4859F90075721B /* MavisUITests */,
 			);
@@ -273,12 +273,12 @@
 /* Begin PBXTargetDependency section */
 		132BF8312D4859F90075721B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 132BF8192D4859F70075721B /* iMavis */;
+			target = 132BF8192D4859F70075721B /* Mavis AAC */;
 			targetProxy = 132BF8302D4859F90075721B /* PBXContainerItemProxy */;
 		};
 		132BF83B2D4859F90075721B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 132BF8192D4859F70075721B /* iMavis */;
+			target = 132BF8192D4859F70075721B /* Mavis AAC */;
 			targetProxy = 132BF83A2D4859F90075721B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -414,13 +414,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Mavis/Preview Content\"";
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iMavis-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = iMavis;
+				INFOPLIST_FILE = "MavisAAC-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mavis AAC";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -432,8 +432,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.iMavis;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisAAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -449,13 +449,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"Mavis/Preview Content\"";
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iMavis-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = iMavis;
+				INFOPLIST_FILE = "MavisAAC-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Mavis AAC";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -467,8 +467,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.iMavis;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisAAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -482,12 +482,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.MavisTests;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -501,12 +501,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.MavisTests;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -519,11 +519,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.MavisUITests;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -536,11 +536,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = K95PCKP5T4;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hiredgoons.MavisUITests;
+				MARKETING_VERSION = 1.0.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazybearlabs.MavisUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		132BF8432D4859F90075721B /* Build configuration list for PBXNativeTarget "iMavis" */ = {
+		132BF8432D4859F90075721B /* Build configuration list for PBXNativeTarget "Mavis AAC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				132BF8442D4859F90075721B /* Debug */,

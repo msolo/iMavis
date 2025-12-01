@@ -84,7 +84,7 @@ Ez|Ezz
 
 This can't solve homographs (***read** 'em and weep* versus *I **read** that yesterday*), but if that's a problem, let me know. It's not unsolvable, just harder.
 
-There is no requirement that pronunciations correction have much to with the orthography. For instance, you can also do:
+There is no requirement that pronunciation corrections have much to with the orthography. For instance, you can also do:
 
 ```
 pepsi|coke
@@ -156,7 +156,7 @@ For instance `Hello.wav` and `Hello!.wav` could be distinct entries. Typing "hel
 
 ### Removing Soundbites
 
-If you find yourself wanting to remove a particular soundbite, you can use the **File** app to go into  `On My iPad` > `iMavis` > `Soundbites` and delete the file from your device.
+If you find yourself wanting to remove a particular soundbite, you can use the **File** app to go into  `On My iPad` > `Mavis AAC` > `Soundbites` and delete the file from your device.
 
 ## Export
 

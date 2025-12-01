@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "132BF8192D4859F70075721B"
-               BuildableName = "iMavis.app"
-               BlueprintName = "iMavis"
+               BuildableName = "Mavis AAC.app"
+               BlueprintName = "Mavis AAC"
                ReferencedContainer = "container:Mavis.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "132BF8192D4859F70075721B"
-            BuildableName = "iMavis.app"
-            BlueprintName = "iMavis"
+            BuildableName = "Mavis AAC.app"
+            BlueprintName = "Mavis AAC"
             ReferencedContainer = "container:Mavis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "132BF8192D4859F70075721B"
-            BuildableName = "iMavis.app"
-            BlueprintName = "iMavis"
+            BuildableName = "Mavis AAC.app"
+            BlueprintName = "Mavis AAC"
             ReferencedContainer = "container:Mavis.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

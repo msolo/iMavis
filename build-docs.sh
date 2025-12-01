@@ -11,4 +11,4 @@ sed -i "" -e 's|"docs/|"|g' docs/index.md
 sed -i "" -e 's|[\(]docs/|(|g' docs/index.md
 
 # Remove superfluous header.
-sed -i "" -e "/# iMavis/d" docs/index.md
+sed -i "" -e "/# Mavis AAC/d" docs/index.md
