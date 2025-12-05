@@ -8,18 +8,13 @@ function fatal {
   exit 1
 }
 
-# Handle site and documentation.
-# ./build-site.sh
-
-# Conflict in the AppStore
-APP_NAME="Mavis"
 # Set the version and build numbers
-VERSION_NUMBER="1.0.10"
-BUILD_NUMBER="10"
+VERSION_NUMBER="1.0.11"
+BUILD_NUMBER="11"
 GIT_TAG="release-$VERSION_NUMBER"
 
 # Set the Xcode project file path
-PROJECT_FILE="$APP_NAME.xcodeproj/project.pbxproj"
+PROJECT_FILE="Mavis.xcodeproj/project.pbxproj"
 RELEASE_DIR="Build/Products/Release"
 
 # Update the MARKETING_VERSION and CURRENT_PROJECT_VERSION values in the project file. This will adjust the version of tests as well, that's fine.
@@ -37,4 +32,3 @@ git rev-parse -q --verify $GIT_TAG >/dev/null || fatal "Run git tag $GIT_TAG"
 if [[ $(git rev-parse -q --verify $GIT_TAG) != $(git rev-parse -q HEAD) ]]; then
   fatal "Run git checkout $GIT_TAG - current workdir revision does not match."
 fi
-

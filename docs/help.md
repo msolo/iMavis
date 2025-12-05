@@ -1,6 +1,6 @@
-# Mavis Help
+# Mavis AAC Help
 
-Mavis has a few features designed to make composing messages easier. This application was designed and built for a specific person who was a very competent typist, but who also possessed a distinct antipathy for computing technology.
+Mavis AAC has a few features designed to make composing messages easier. This application was designed and built for a specific person who was a very competent typist, but who also possessed a distinct antipathy for computing technology.
 
 The default settings and capabilities were strongly influenced by her needs and abilities as well as my best guesses on how to make living with this technology easier for her. There are many possible ways to modify and improve the software for specific needs.
 
@@ -38,7 +38,7 @@ Alternatively, **Command** key and up arrow **⌘↑** will recall the last mess
 
 # Tab Completion
 
-When you press the **Tab** key, Mavis will suggest matching options from the list of preconfigured phrases and available soundbites based on the text already typed. Even small fragments of words can be used and they need not be in order. Matches will be ordered and the best match will be the last in the list, automatically selected.
+When you press the **Tab** key, Mavis AAC will suggest matching options from the list of preconfigured phrases and available soundbites based on the text already typed. Even small fragments of words can be used and they need not be in order. Matches will be ordered and the best match will be the last in the list, automatically selected.
 
 For instance:
 `blinds up`

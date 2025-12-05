@@ -1,14 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
-# Reformat README to work better on GitHub Pages, which is annoyingly
-# different than the inline rendering.
+set -e
+
+# Allow README.md to serve in two place.
 
 cp README.md docs/index.md
 
-# Remove docs/ prefix in links.
+# Remove docs/ prefix in HTML links.
 sed -i "" -e 's|"docs/|"|g' docs/index.md
-# Remove docs/ prefix in links.
+# Remove docs/ prefix in Markdown links.
 sed -i "" -e 's|[\(]docs/|(|g' docs/index.md
-
-# Remove superfluous header.
-sed -i "" -e "/# Mavis AAC/d" docs/index.md
