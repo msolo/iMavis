@@ -109,6 +109,13 @@ struct PrefsView: View {
             )
           }
         }
+        Section(header: Text("Help & Support")) {
+          Button("Open Help") {
+            let url = URL(string: "https://lazybearlabs.com/apps/mavis-aac/ios/help.html")!
+            UIApplication.shared.open(url)
+          }
+          EmailSupportButton()
+        }
         Section(header: Text("Configuration")) {
           NavigationLink(
             destination: {
