@@ -1,20 +1,30 @@
+---
+{
+  "IncludeTOC": true,
+}
+---
+
 # Mavis AAC Help
 
-Mavis AAC has a few features designed to make composing messages easier. This application was designed and built for a specific person who was a very competent typist, but who also possessed a distinct antipathy for computing technology.
+Mavis AAC has a few features designed to make composing messages easier.
+
+This application was originally designed and built for a specific person who was a very competent typist, but who also possessed a distinct antipathy for computing technology.
 
 The default settings and capabilities were strongly influenced by her needs and abilities as well as my best guesses on how to make living with this technology easier for her. There are many possible ways to modify and improve the software for specific needs.
 
 # Text To Speech Intro
 
-You can be lazy. Text to speech does not care about capitalization and usually doesn't care much about homophones either - their, they're and there are all pronounced about the same.
+You can be lazy. Text to speech does not care about capitalization and usually doesn't care much about homophones either - *their*, *they're* and *there* are all pronounced about the same.
 
-Sometimes there are subtle differences with some punctuation, like hyphens and commas. Unfortunately, right now most of the voices don't recognize the difference between `"Hello."`, `"Hello?"` and `"Hello!"` -- that's a current limitation of the Apple Speech synthesizer.
+Sometimes there are subtle differences with some punctuation, like hyphens and commas. It might be noticeable, but is generally not distracting.
 
-If there is a persistent problem, there are ways to tweak pronunciation inside the voice synthesizer. See the section on **Pronunciations**.
+Unfortunately, right now most of the voices don't recognize the difference between `"Hello."`, `"Hello?"` and `"Hello!"` -- that's a current limitation of the Apple Speech synthesizer.
+
+If there is a persistent problem, there are ways to tweak pronunciation inside the voice synthesizer. See the section on [Fixing Pronunciations](#fixing-pronunciations) for me details.
 
 # Keyboard Navigation
 
-You shouldn’t need to use menus with Mavis most of the time. Hunting through menus takes your fingers off the home row and ends up slowing you down.
+You shouldn’t need to use menus with Mavis AAC most of the time. Hunting through menus takes your fingers off the home row and ends up slowing you down.
 
 Whatever you type in the composition text will be spoken when you press **Return**.
 
@@ -22,7 +32,7 @@ The last 10 phrases are remembered and you can quickly access them using the **C
 
 Swiping items in the history list will allow you to delete a history item.
 
-All the standard Mac keyboard navigation tricks work.
+All the standard Mac keyboard tricks work - for instance ⌘A will select all text and you can then delete it all with the **Delete** key. That will let you quickly start over.
 
 ⌘← and ⌘→ (**Command** with the left or right arrow keys) will let you skip to the beginning or end of the composition.
 
@@ -58,10 +68,14 @@ The **Escape** key (**esc** on the top left of your keyboard), cancels the compl
 
 > NOTE: There is no "best" way to do completions. This mechanism proved simple, fast, predictable and moderately effective. However, there are many ways to potentially alter the behavior.
 
+When there is nothing typed, **Tab** brings up a list of all phrases and soundbites.
+
 
 # Phone and FaceTime
 
 If you are on a call, Mavis is ready to help and you can speak with both your voice and the synthesizer.
+
+Soundbites do not work over FaceTime/Phone calls. When a call is active, soundbites will be synthesized rather than played back from the recordings.
 
 
 # Speak Sentences Automatically
@@ -88,7 +102,13 @@ There is no requirement that pronunciation corrections have much to with the ort
 
 ```
 pepsi|coke
+ttyl|talk to you later
+ty|thank you
+thx|thanks
 ```
+
+The only limitation is that only single words are matched.
+
 
 # Soundbites
 
@@ -100,6 +120,7 @@ You can disable **Soundbites** in the **Chat** menu.
 
 > NOTE: Soundbites do not play over Facetime or phone calls.
 
+
 # Noisy Typing
 
 Noisy Typing plays an audible click sound when you type into Mavis. This plays over the speakers to let people know that you are typing "conversationally", not beavering away on some other distraction on your device.
@@ -107,6 +128,7 @@ Noisy Typing plays an audible click sound when you type into Mavis. This plays o
 You can disable **Noisy Typing** in the **Chat** menu.
 
 > NOTE: Noisy typing sounds do not play over Facetime or phone calls.
+
 
 # Ring Bell
 
@@ -150,17 +172,18 @@ You can also adjust how long the display will stay awake when using the app to s
 
 ### soundbites.zip
 
-This zip archive can contain any number of sound files that are in the `.wav` or `.m4a` formats. The importer uses the name of the each file in the zip archive as the exact text to use when matching a soundbite.
+This zip archive can contain any number of sound files that are in the `.wav` or `.m4a` formats. The importer uses the name of each file in the zip archive as the exact text to use when matching a soundbite.
 
 For instance `Hello.wav` and `Hello!.wav` could be distinct entries. Typing "hello" would only match the first. "hello!" would only match the second.
 
 ### Removing Soundbites
 
-If you find yourself wanting to remove a particular soundbite, you can use the **File** app to go into  `On My iPad` > `Mavis AAC` > `Soundbites` and delete the file from your device.
+If you find yourself wanting to remove a particular soundbite, you can use the **File** app to go into  `On My iPad` > `Mavis AAC` > `soundbites` and delete the file from your device.
+
+This can also be opened via "Show Soundbites..." in the Settings.
 
 ## Export
 
-This lets you send any logged chats via Apple's sharing mechanisms to do some analysis. This mechanism was used to help train early versions of the text correction engine and collect data about patterns of typos or other systematic typing errors.
+This lets you send logged chats via Apple's sharing mechanisms to do some analysis. This mechanism was used to help train early versions of the text correction engine and collect data about patterns of typos or other systematic typing errors.
 
-For this to be useful, you have to enable chat logging, which is obviously disabled by default to preserve privacy.
-
+For this to be useful, chat logging must be enabled beforehand. This feature is obviously disabled by default to preserve privacy.

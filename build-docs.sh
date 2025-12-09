@@ -2,11 +2,5 @@
 
 set -e
 
-# Allow README.md to serve in two place.
-
-cp README.md docs/index.md
-
-# Remove docs/ prefix in HTML links.
-sed -i "" -e 's|"docs/|"|g' docs/index.md
-# Remove docs/ prefix in Markdown links.
-sed -i "" -e 's|[\(]docs/|(|g' docs/index.md
+# Export README so it shows up on GitHub reasonably well.
+./export-readme.py docs/index.md ./README.md

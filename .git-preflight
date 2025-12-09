@@ -11,19 +11,42 @@
       // TODO(msolo) Implement json, null-terminated and line-terminated options on stdin.
       "input_type": "args",
       // Run this command when files are matched.
-      "cmd": ["clang-format", "-i"],
+      "cmd": [
+        "clang-format",
+        "-i"
+      ],
       // Run on modified files that match the given glob. See fnmatch for more details.
       // Note that ** is not supported.
-      "includes": ["*.m", "*.h"],
+      "includes": [
+        "*.m",
+        "*.h"
+      ],
       // Skip included files that match any of these globs. ** is not supported.
       "excludes": []
     },
     {
       "name": "swift-format",
       "input_type": "args",
-      "cmd": ["swift-format", "-p", "-i"],
-      "includes": ["*.swift"],
+      "cmd": [
+        "swift-format",
+        "-p",
+        "-i"
+      ],
+      "includes": [
+        "*.swift"
+      ],
       "excludes": []
-    }
+    },
+    {
+      "name": "build-docs",
+      "input_type": "none",
+      "cmd": [
+        "./build-docs.sh"
+      ],
+      "includes": [
+        "*.md"
+      ],
+      "excludes": []
+    },
   ]
 }
