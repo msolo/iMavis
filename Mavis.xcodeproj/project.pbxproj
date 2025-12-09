@@ -52,6 +52,11 @@
 			path = MavisUITests;
 			sourceTree = "<group>";
 		};
+		27A107E22EE3C2B700860DAB /* docs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = docs;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,7 @@
 		132BF8112D4859F70075721B = {
 			isa = PBXGroup;
 			children = (
+				27A107E22EE3C2B700860DAB /* docs */,
 				130FF1442D5AE16E0034134C /* MavisAAC-Info.plist */,
 				132BF81C2D4859F70075721B /* Mavis */,
 				132BF8322D4859F90075721B /* MavisTests */,

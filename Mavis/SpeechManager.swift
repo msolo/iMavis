@@ -164,7 +164,7 @@ final class SpeechManager {
   private func reloadSoundbites() {
     do {
       let validExtensions = ["m4a", "wav"]
-      let dir = try userFile("soundbites", isPublic: true)
+      let dir = MVFileManager.shared.soundsbites
 
       guard let files = try MVFileManager.shared.readDirIfModified(dirURL: dir) else {
         return

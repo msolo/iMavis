@@ -139,6 +139,9 @@ struct PrefsView: View {
               // For some reason the default style does not seem to indicate navigation.
               Text("Edit Pronunciations…").foregroundStyle(.blue)
             })
+          Button("Show Soundbites…") {
+            openSoundbites()
+          }
           Button("Import File…") {
             showDocumentPicker.toggle()
           }
@@ -220,6 +223,20 @@ struct FormSliderRow: View {
           .gridColumnAlignment(.leading)
       }.gridCellColumns(3).gridColumnAlignment(.leading)
     }
+  }
+}
+
+func openSoundbites() {
+  let fileURL = MVFileManager.shared.soundsbites
+  // Ensure the file exists (create it if needed for testing)
+  if !FileManager.default.fileExists(atPath: fileURL.path) {
+    // Try to create a directory if there isn't one, but not much to do
+    // if this fails.
+    try? FileManager.default.createDirectory(at: fileURL, withIntermediateDirectories: false)
+  }
+  // Open in Files app using shareddocuments:// scheme
+  if let filesURL = URL(string: "shareddocuments://\(fileURL.path)") {
+    UIApplication.shared.open(filesURL)
   }
 }
 

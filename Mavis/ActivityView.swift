@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+// Used when sharing an export.zip file of the existing configuration files and logs.
 struct ActivityView: UIViewControllerRepresentable {
   let fileURL: URL
 

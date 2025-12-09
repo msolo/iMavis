@@ -6,7 +6,8 @@ enum MVConfigFile: String, CaseIterable {
   case pronunciations = "pronunciations.txt"
   case log = "log.jsonl"
   case history = "history.json"
-  case soundbites = "soundbites.zip"
+  case soundbites_import = "soundbites.zip"
+  case soundbites = "soundbites"
 }
 
 // A simple string wrapper to show an error message to the user.
@@ -34,6 +35,10 @@ class MVFileManager {
 
   var pronunciations: URL {
     return try! userFile(MVConfigFile.pronunciations.rawValue, isPublic: true)
+  }
+
+  var soundsbites: URL {
+    return try! userFile(MVConfigFile.soundbites.rawValue, isPublic: true)
   }
 
   var history: URL {
@@ -117,13 +122,13 @@ class MVFileManager {
       return
     }
 
-    if fname.hasSuffix(".zip") {
-      let dir = String(fname.prefix(fname.count - ".zip".count))
-      let dirURL = try userFile(dir, isPublic: true)
+    if fname == MVConfigFile.soundbites_import.rawValue {
+      let dirURL = MVFileManager.shared.soundsbites
       try fm.createDirectory(at: dirURL, withIntermediateDirectories: true, attributes: nil)
       try fm.unzipItem(at: fileURL, to: dirURL, pathEncoding: .utf8)
       return
     }
+
     let newPath = try userFile(fname, isPublic: true)
     try fm.copyItem(at: fileURL, to: newPath)
   }
